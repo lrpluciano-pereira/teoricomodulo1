@@ -17,10 +17,14 @@
             --bg-light: #16213e;
             --gold: #d4af37;
             --gold-dark: #b8942e;
+            --gold-light: #f0d860;
             --text-primary: #ffffff;
             --text-secondary: #c5d0e6;
             --border: #1e2a44;
             --success: #2ecc71;
+            --danger: #e74c3c;
+            --warning: #f39c12;
+            --info: #3498db;
         }
 
         body {
@@ -108,6 +112,7 @@
             padding: 40px 24px;
         }
 
+        /* Cabeçalho do módulo */
         .module-header {
             text-align: center;
             margin-bottom: 48px;
@@ -126,6 +131,7 @@
             margin: 0 auto;
         }
 
+        /* Barra de progresso geral */
         .progress-container {
             background: var(--bg-card);
             border-radius: 60px;
@@ -144,11 +150,6 @@
             align-items: center;
             gap: 16px;
             flex-wrap: wrap;
-        }
-
-        .progress-label {
-            font-size: 0.9rem;
-            color: var(--text-secondary);
         }
 
         .progress-bar-wrapper {
@@ -176,6 +177,7 @@
             color: var(--gold);
         }
 
+        /* Abas */
         .module-tabs {
             display: flex;
             gap: 12px;
@@ -220,18 +222,18 @@
             to { opacity: 1; transform: translateY(0); }
         }
 
+        /* Cards */
         .content-card {
             background: var(--bg-card);
             border-radius: 24px;
             padding: 28px;
             margin-bottom: 24px;
             border: 1px solid var(--border);
-            transition: transform 0.2s, box-shadow 0.2s;
+            transition: transform 0.2s;
         }
 
         .content-card:hover {
             transform: translateY(-2px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.2);
             border-color: var(--gold);
         }
 
@@ -245,6 +247,33 @@
             flex-wrap: wrap;
         }
 
+        /* Objetivos */
+        .learning-objectives {
+            background: linear-gradient(135deg, rgba(52, 152, 219, 0.1), rgba(52, 152, 219, 0.02));
+            border-left: 4px solid var(--info);
+            padding: 20px;
+            border-radius: 16px;
+            margin-bottom: 24px;
+        }
+
+        .learning-objectives h3 {
+            color: var(--info);
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .learning-objectives ul {
+            margin-left: 24px;
+            color: var(--text-secondary);
+        }
+
+        .learning-objectives li {
+            margin: 8px 0;
+        }
+
+        /* Vídeo */
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
@@ -263,6 +292,7 @@
             border-radius: 16px;
         }
 
+        /* Citações */
         .quote-card {
             background: linear-gradient(135deg, rgba(212,175,55,0.08), rgba(212,175,55,0.02));
             border-left: 4px solid var(--gold);
@@ -272,11 +302,6 @@
             font-style: italic;
         }
 
-        .quote-text {
-            font-size: 1rem;
-            line-height: 1.6;
-        }
-
         .quote-author {
             margin-top: 12px;
             color: var(--gold);
@@ -284,11 +309,12 @@
             font-weight: 500;
         }
 
+        /* Botão de concluir vídeo */
         .complete-btn {
             background: var(--gold);
             color: var(--bg-dark);
             border: none;
-            padding: 12px 28px;
+            padding: 10px 24px;
             border-radius: 40px;
             font-weight: bold;
             cursor: pointer;
@@ -305,27 +331,140 @@
             cursor: default;
         }
 
-        .complete-btn:hover:not(.completed) {
-            transform: scale(1.02);
-            background: #e6c453;
-        }
-
-        .status-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
+        /* QUIZ */
+        .quiz-container {
             background: var(--bg-light);
-            padding: 4px 12px;
-            border-radius: 30px;
-            font-size: 0.75rem;
-            margin-left: 12px;
+            border-radius: 20px;
+            padding: 24px;
+            margin-top: 24px;
+            border: 1px solid var(--border);
         }
 
-        .status-badge.completed {
-            background: var(--success);
+        .quiz-question {
+            margin-bottom: 20px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .quiz-question p {
+            font-weight: 500;
+            margin-bottom: 12px;
+            color: var(--gold-light);
+        }
+
+        .quiz-option {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .quiz-option:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .quiz-option input {
+            width: 18px;
+            height: 18px;
+            cursor: pointer;
+            accent-color: var(--gold);
+        }
+
+        .quiz-option.correct {
+            background: rgba(46, 204, 113, 0.2);
+            border-left: 3px solid var(--success);
+        }
+
+        .quiz-option.incorrect {
+            background: rgba(231, 76, 60, 0.2);
+            border-left: 3px solid var(--danger);
+        }
+
+        .btn-quiz {
+            background: var(--gold);
             color: var(--bg-dark);
+            border: none;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 16px;
         }
 
+        .quiz-feedback {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            font-size: 0.9rem;
+        }
+
+        .quiz-feedback.correct {
+            background: rgba(46, 204, 113, 0.1);
+            color: var(--success);
+        }
+
+        .quiz-feedback.incorrect {
+            background: rgba(231, 76, 60, 0.1);
+            color: var(--danger);
+        }
+
+        /* Mini-simulador */
+        .mini-simulador {
+            background: linear-gradient(135deg, var(--bg-dark), #0d1a30);
+            border-radius: 20px;
+            padding: 24px;
+            margin: 24px 0;
+            border: 1px solid var(--gold);
+        }
+
+        .mini-simulador h3 {
+            color: var(--gold);
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .mini-opcoes {
+            display: flex;
+            gap: 16px;
+            margin: 20px 0;
+            flex-wrap: wrap;
+        }
+
+        .mini-opcao {
+            flex: 1;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            padding: 16px;
+            border-radius: 16px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.2s;
+        }
+
+        .mini-opcao:hover {
+            border-color: var(--gold);
+            transform: translateY(-2px);
+        }
+
+        .mini-opcao.selected {
+            border-color: var(--gold);
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .mini-feedback {
+            margin-top: 16px;
+            padding: 12px;
+            border-radius: 12px;
+            display: none;
+        }
+
+        /* Tabela de virtudes */
         .virtue-table {
             width: 100%;
             border-collapse: collapse;
@@ -345,10 +484,6 @@
             background: var(--gold-dark);
             color: var(--bg-dark);
             font-weight: 600;
-        }
-
-        .virtue-table tr:last-child td {
-            border-bottom: none;
         }
 
         /* Navegação entre módulos */
@@ -380,7 +515,7 @@
             transform: scale(1.02);
         }
 
-        /* Botões de ação no final da página */
+        /* Botões de ação */
         .action-buttons {
             display: flex;
             justify-content: space-between;
@@ -417,6 +552,22 @@
             margin-top: 40px;
         }
 
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: var(--bg-light);
+            padding: 4px 12px;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            margin-left: 12px;
+        }
+
+        .status-badge.completed {
+            background: var(--success);
+            color: var(--bg-dark);
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 24px 16px;
@@ -433,12 +584,8 @@
             .action-buttons {
                 flex-direction: column;
             }
-            .module-tabs {
-                gap: 8px;
-            }
-            .tab-btn {
-                padding: 8px 16px;
-                font-size: 0.85rem;
+            .mini-opcoes {
+                flex-direction: column;
             }
         }
     </style>
@@ -471,7 +618,7 @@
 
         <div class="progress-container">
             <div class="progress-info">
-                <span class="progress-label">📊 Seu progresso</span>
+                <span class="progress-label">📊 Progresso do curso</span>
                 <span class="progress-percent" id="progressPercent">0%</span>
             </div>
             <div class="progress-bar-wrapper">
@@ -487,8 +634,23 @@
             <button class="tab-btn" data-module="3">🍃 Módulo 3 • Outras Perspectivas</button>
         </div>
 
-        <!-- MÓDULO 1 -->
+        <!-- ============================================ -->
+        <!-- MÓDULO 1: FUNDAMENTOS -->
+        <!-- ============================================ -->
         <div id="module1" class="module-content active">
+            <!-- Objetivos do Módulo 1 -->
+            <div class="content-card">
+                <div class="learning-objectives">
+                    <h3>🎯 Objetivos deste módulo</h3>
+                    <ul>
+                        <li>Compreender quem foi Sócrates e qual a importância do método socrático</li>
+                        <li>Identificar as principais ideias de Platão sobre a justiça e a alma</li>
+                        <li>Reconhecer a diferença entre a filosofia socrática e a sofística</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Vídeo -->
             <div class="content-card">
                 <div class="card-title">
                     🎬 Vídeo: Sócrates, Platão e Aristóteles
@@ -501,22 +663,57 @@
                 <button class="complete-btn" onclick="marcarAssistido(1, 1)">📌 Marcar como assistido</button>
             </div>
 
+            <!-- Conteúdo Sócrates -->
             <div class="content-card">
                 <div class="card-title">🏛️ Sócrates (470-399 a.C.)</div>
                 <div class="quote-card">
                     <div class="quote-text">"Conhece-te a ti mesmo" e "Sei que nada sei"</div>
                     <div class="quote-author">— Sócrates</div>
                 </div>
-                <p>Sócrates inaugurou a filosofia moral com o método dialógico e a busca pelo autoconhecimento.</p>
+                <p>Sócrates inaugurou a filosofia moral com o método dialógico e a busca pelo autoconhecimento. Para ele, a <strong>alma é o eu consciente</strong>, a personalidade intelectual e moral. Sua preocupação central era levar as pessoas, por meio do autoconhecimento, à sabedoria e à prática do bem.</p>
+                <div class="quote-card">
+                    <div class="quote-text">"Não deveis cuidar do corpo, nem das riquezas, nem de qualquer outra coisa antes e mais do que da alma."</div>
+                    <div class="quote-author">— Sócrates (Apologia de Sócrates)</div>
+                </div>
+                <p><strong>💡 Método Socrático:</strong> Sócrates utilizava a <strong>ironia</strong> (fazer o interlocutor reconhecer sua ignorância) e a <strong>maiêutica</strong> (arte de "dar à luz" ideias verdadeiras) para conduzir o diálogo.</p>
             </div>
 
+            <!-- Conteúdo Platão -->
             <div class="content-card">
                 <div class="card-title">📜 Platão (428-348 a.C.)</div>
                 <div class="quote-card">
-                    <div class="quote-text">"A menos que os filósofos se tornem reis, as cidades nunca terão descanso dos males."</div>
+                    <div class="quote-text">"A menos que os filósofos se tornem reis, ou os reis se tornem filósofos, as cidades nunca terão descanso dos males."</div>
                     <div class="quote-author">— Platão, A República</div>
                 </div>
-                <p>Discípulo de Sócrates, Platão desenvolveu uma filosofia que integra ética, política e metafísica.</p>
+                <p>Discípulo de Sócrates, Platão desenvolveu uma filosofia que integra ética, política e metafísica. Para ele, a <strong>justiça</strong> é a harmonia entre as partes da alma e da cidade.</p>
+                <p><strong>💡 A Alegoria da Caverna:</strong> Prisioneiros acorrentados dentro de uma caverna veem apenas sombras projetadas na parede. Quando um se liberta, descobre a verdadeira realidade. A tarefa do filósofo é retornar à caverna para libertar os outros.</p>
+            </div>
+
+            <!-- MINI-QUIZ do Módulo 1 -->
+            <div class="content-card">
+                <div class="card-title">📝 Quiz Rápido - Módulo 1</div>
+                <div class="quiz-container" id="quiz1">
+                    <div class="quiz-question" data-correct="a">
+                        <p>1. Qual é o método utilizado por Sócrates para "dar à luz" ideias verdadeiras?</p>
+                        <label class="quiz-option"><input type="radio" name="q1" value="a"> a) Maiêutica</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="b"> b) Sofisma</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="c"> c) Dialética negativa</label>
+                    </div>
+                    <div class="quiz-question" data-correct="c">
+                        <p>2. Para Platão, a justiça na alma e na cidade é:</p>
+                        <label class="quiz-option"><input type="radio" name="q2" value="a"> a) O poder do mais forte</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="b"> b) A busca pelo prazer</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="c"> c) A harmonia entre as partes</label>
+                    </div>
+                    <div class="quiz-question" data-correct="b">
+                        <p>3. A Alegoria da Caverna de Platão é uma metáfora sobre:</p>
+                        <label class="quiz-option"><input type="radio" name="q3" value="a"> a) O poder político</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="b"> b) A educação e o conhecimento</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="c"> c) A vida após a morte</label>
+                    </div>
+                    <button class="btn-quiz" onclick="verificarQuiz(1)">✅ Verificar respostas</button>
+                    <div id="quiz1Feedback" class="quiz-feedback" style="display:none;"></div>
+                </div>
             </div>
 
             <div class="module-navigation">
@@ -525,8 +722,23 @@
             </div>
         </div>
 
-        <!-- MÓDULO 2 -->
+        <!-- ============================================ -->
+        <!-- MÓDULO 2: ARISTÓTELES -->
+        <!-- ============================================ -->
         <div id="module2" class="module-content">
+            <div class="content-card">
+                <div class="learning-objectives">
+                    <h3>🎯 Objetivos deste módulo</h3>
+                    <ul>
+                        <li>Compreender o conceito de Eudaimonia como florescimento humano</li>
+                        <li>Identificar o Justo Meio (Mesotes) como equilíbrio entre excesso e falta</li>
+                        <li>Reconhecer a importância da Phronesis (sabedoria prática)</li>
+                        <li>Aplicar o Justo Meio em situações do cotidiano digital</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Vídeo Principal -->
             <div class="content-card">
                 <div class="card-title">
                     🎬 Vídeo Principal: Ética e Virtude
@@ -539,30 +751,37 @@
                 <button class="complete-btn" onclick="marcarAssistido(2, 2)">📌 Marcar como assistido</button>
             </div>
 
+            <!-- Conteúdo Aristóteles -->
             <div class="content-card">
                 <div class="card-title">📖 Aristóteles (384-322 a.C.)</div>
                 <div class="quote-card">
-                    <div class="quote-text">"Toda arte, toda investigação, toda ação tendem para algum bem."</div>
+                    <div class="quote-text">"Toda arte, toda investigação, toda ação e toda escolha racional tendem para algum bem."</div>
                     <div class="quote-author">— Aristóteles, Ética a Nicômaco</div>
                 </div>
+                <p>Discípulo de Platão e tutor de Alexandre o Grande, Aristóteles fundou o Liceu em Atenas. Sua <strong>Ética a Nicômaco</strong> é uma das obras mais influentes da filosofia ocidental.</p>
             </div>
 
+            <!-- Eudaimonia -->
             <div class="content-card">
                 <div class="card-title">🌟 Eudaimonia: O Florescimento Humano</div>
                 <div class="quote-card">
                     <div class="quote-text">"A felicidade é uma atividade da alma conforme a virtude perfeita."</div>
-                    <div class="quote-author">— Aristóteles</div>
+                    <div class="quote-author">— Aristóteles, Ética a Nicômaco</div>
                 </div>
+                <p>A Eudaimonia não é um prazer momentâneo, mas uma <strong>vida bem vivida</strong>, onde a pessoa realiza seu potencial humano plenamente. No contexto digital, pergunte-se: <em>meu uso da tecnologia está contribuindo para meu florescimento como ser humano?</em></p>
             </div>
 
+            <!-- Justo Meio -->
             <div class="content-card">
                 <div class="card-title">⚖️ O Justo Meio (Mesotes)</div>
                 <div class="quote-card">
-                    <div class="quote-text">"A virtude é um meio-termo entre dois vícios, um por excesso e outro por falta."</div>
-                    <div class="quote-author">— Aristóteles</div>
+                    <div class="quote-text">"A virtude é uma disposição de caráter relacionada com a escolha, consistindo num meio-termo relativo a nós, determinado pela razão."</div>
+                    <div class="quote-author">— Aristóteles, Ética a Nicômaco</div>
                 </div>
+                <p>O vício é sempre <strong>excesso ou falta</strong> entre dois pontos extremos. A virtude é a medida entre os extremos, o equilíbrio, o justo meio.</p>
+                
                 <table class="virtue-table">
-                    <thead><tr><th>Falta</th><th>Justo Meio</th><th>Excesso</th></tr></thead>
+                    <thead><tr><th>Vício por Falta</th><th>Virtude (Justo Meio)</th><th>Vício por Excesso</th></tr></thead>
                     <tbody>
                         <tr><td style="color:#f28b82">Covardia</td><td style="color:var(--gold)">Coragem</td><td style="color:#fbbc04">Temeridade</td></tr>
                         <tr><td style="color:#f28b82">Insensibilidade</td><td style="color:var(--gold)">Temperança</td><td style="color:#fbbc04">Libertinagem</td></tr>
@@ -571,14 +790,89 @@
                 </table>
             </div>
 
+            <!-- Phronesis -->
+            <div class="content-card">
+                <div class="card-title">🧠 Phronesis: A Sabedoria Prática</div>
+                <div class="quote-card">
+                    <div class="quote-text">"Não é saber o que é a coragem que desejamos, mas ser corajoso, nem o que é a justiça, mas ser justos."</div>
+                    <div class="quote-author">— Aristóteles, Ética a Nicômaco</div>
+                </div>
+                <p>A Phronesis é a <strong>sabedoria prática</strong> que nos permite discernir, em cada situação concreta, qual é a ação correta. É desenvolvida com a experiência, a reflexão e o hábito.</p>
+            </div>
+
+            <!-- MINI-SIMULADOR do Módulo 2 -->
+            <div class="content-card">
+                <div class="card-title">🎮 Pratique o Justo Meio!</div>
+                <div class="mini-simulador" id="miniSimulador">
+                    <h3>📱 Situação: Mensagens durante o jantar</h3>
+                    <p>Você está em um jantar em família e seu celular vibra com notificações. Qual atitude representa o JUSTO MEIO?</p>
+                    <div class="mini-opcoes">
+                        <div class="mini-opcao" onclick="responderMiniSimulador(this, 'falta')">
+                            <strong>❌ Isolamento</strong><br>
+                            Ignorar completamente o celular e a família
+                        </div>
+                        <div class="mini-opcao" onclick="responderMiniSimulador(this, 'justoMeio')">
+                            <strong>✨ Equilíbrio</strong><br>
+                            Perceber, mas finalizar a refeição primeiro
+                        </div>
+                        <div class="mini-opcao" onclick="responderMiniSimulador(this, 'excesso')">
+                            <strong>⚠️ Excesso</strong><br>
+                            Abandonar a conversa para responder
+                        </div>
+                    </div>
+                    <div id="miniFeedback" class="mini-feedback"></div>
+                </div>
+            </div>
+
+            <!-- MINI-QUIZ do Módulo 2 -->
+            <div class="content-card">
+                <div class="card-title">📝 Quiz Rápido - Módulo 2</div>
+                <div class="quiz-container" id="quiz2">
+                    <div class="quiz-question" data-correct="b">
+                        <p>1. O que significa Eudaimonia para Aristóteles?</p>
+                        <label class="quiz-option"><input type="radio" name="q1" value="a"> a) Prazer momentâneo</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="b"> b) Florescimento humano / vida bem vivida</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="c"> c) Riqueza e poder</label>
+                    </div>
+                    <div class="quiz-question" data-correct="a">
+                        <p>2. O Justo Meio (Mesotes) é:</p>
+                        <label class="quiz-option"><input type="radio" name="q2" value="a"> a) O equilíbrio entre excesso e falta</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="b"> b) A média aritmética entre dois extremos</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="c"> c) A escolha pelo prazer máximo</label>
+                    </div>
+                    <div class="quiz-question" data-correct="c">
+                        <p>3. O que é Phronesis?</p>
+                        <label class="quiz-option"><input type="radio" name="q3" value="a"> a) Conhecimento teórico</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="b"> b) Técnica de argumentação</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="c"> c) Sabedoria prática</label>
+                    </div>
+                    <button class="btn-quiz" onclick="verificarQuiz(2)">✅ Verificar respostas</button>
+                    <div id="quiz2Feedback" class="quiz-feedback" style="display:none;"></div>
+                </div>
+            </div>
+
             <div class="module-navigation">
                 <button class="nav-module-btn" onclick="irParaModulo(1)">← Módulo Anterior</button>
                 <button class="nav-module-btn" onclick="irParaModulo(3)">🍃 Próximo Módulo →</button>
             </div>
         </div>
 
-        <!-- MÓDULO 3 -->
+        <!-- ============================================ -->
+        <!-- MÓDULO 3: OUTRAS PERSPECTIVAS -->
+        <!-- ============================================ -->
         <div id="module3" class="module-content">
+            <div class="content-card">
+                <div class="learning-objectives">
+                    <h3>🎯 Objetivos deste módulo</h3>
+                    <ul>
+                        <li>Compreender a filosofia de Epicuro e o conceito de ataraxia</li>
+                        <li>Identificar as diferenças entre Hobbes e Rousseau sobre a natureza humana</li>
+                        <li>Comparar as principais ideias dos filósofos estudados</li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Vídeo -->
             <div class="content-card">
                 <div class="card-title">
                     🎬 Vídeo: Epicurismo e Estoicismo
@@ -590,39 +884,88 @@
                 <button class="complete-btn" onclick="marcarAssistido(3, 3)">📌 Marcar como assistido</button>
             </div>
 
+            <!-- Epicuro -->
             <div class="content-card">
                 <div class="card-title">🍃 Epicuro (341-271 a.C.)</div>
                 <div class="quote-card">
-                    <div class="quote-text">⚡ Não há o que temer quanto aos deuses.<br>⚡ Não há nada a temer quanto à morte.</div>
+                    <div class="quote-text">⚡ Não há o que temer quanto aos deuses.<br>⚡ Não há nada a temer quanto à morte.<br>⚡ Pode-se alcançar a felicidade.<br>⚡ Pode-se suportar a dor.</div>
+                    <div class="quote-author">— Tetraphármakon epicurista</div>
                 </div>
+                <p>Vivendo em tempos conturbados, Epicuro construiu uma filosofia centrada no <strong>prazer sereno (ataraxia)</strong> e na <strong>amizade (philia)</strong>. O Jardim de Epicuro era aberto a mulheres, escravos e estrangeiros.</p>
             </div>
 
+            <!-- Hobbes -->
             <div class="content-card">
                 <div class="card-title">⚔️ Thomas Hobbes (1588-1679)</div>
                 <div class="quote-card">
-                    <div class="quote-text">"Se dois homens desejam a mesma coisa, eles se tornam inimigos."</div>
+                    <div class="quote-text">"Se dois homens desejam a mesma coisa, ao mesmo tempo em que é impossível ela ser gozada por ambos, eles se tornam inimigos."</div>
                     <div class="quote-author">— Hobbes, Leviatã</div>
                 </div>
+                <p>No estado de natureza, há <strong>guerra de todos contra todos</strong>. A única solução para garantir a paz é instituir um <strong>Estado soberano absoluto</strong>.</p>
             </div>
 
+            <!-- Rousseau -->
             <div class="content-card">
                 <div class="card-title">🌿 Jean-Jacques Rousseau (1712-1778)</div>
                 <div class="quote-card">
-                    <div class="quote-text">"O homem nasce bom, e a sociedade o corrompe."</div>
-                    <div class="quote-author">— Rousseau</div>
+                    <div class="quote-text">"O primeiro que, tendo cercado um terreno, se lembrou de dizer: Isto é meu, foi o verdadeiro fundador da sociedade civil."</div>
+                    <div class="quote-author">— Rousseau, Discurso sobre a origem da desigualdade</div>
+                </div>
+                <p>Diferentemente de Hobbes, Rousseau considera que o <strong>homem nasce bom</strong>, e a sociedade o corrompe. Propõe um modelo de <strong>soberania popular</strong> baseado na <strong>vontade geral</strong>.</p>
+            </div>
+
+            <!-- Tabela Comparativa -->
+            <div class="content-card">
+                <div class="card-title">📊 Comparação entre os Filósofos</div>
+                <table class="virtue-table">
+                    <thead><tr><th>Filósofo</th><th>Natureza Humana</th><th>Bem Supremo</th><th>Virtude Principal</th></tr></thead>
+                    <tbody>
+                        <tr><td><strong>Sócrates</strong></td><td style="color:var(--gold)">Alma racional</td><td style="color:var(--gold)">Conhecimento de si</td><td style="color:var(--gold)">Autoconhecimento</td></tr>
+                        <tr><td><strong>Aristóteles</strong></td><td style="color:var(--gold)">Animal político</td><td style="color:var(--gold)">Eudaimonia</td><td style="color:var(--gold)">Phronesis</td></tr>
+                        <tr><td><strong>Epicuro</strong></td><td style="color:var(--gold)">Busca do prazer</td><td style="color:var(--gold)">Ataraxia</td><td style="color:var(--gold)">Moderação</td></tr>
+                        <tr><td><strong>Hobbes</strong></td><td style="color:var(--gold)">Egoísta</td><td style="color:var(--gold)">Autoconservação</td><td style="color:var(--gold)">Razão calculadora</td></tr>
+                        <tr><td><strong>Rousseau</strong></td><td style="color:var(--gold)">Naturalmente bom</td><td style="color:var(--gold)">Liberdade</td><td style="color:var(--gold)">Vontade geral</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- MINI-QUIZ do Módulo 3 -->
+            <div class="content-card">
+                <div class="card-title">📝 Quiz Rápido - Módulo 3</div>
+                <div class="quiz-container" id="quiz3">
+                    <div class="quiz-question" data-correct="a">
+                        <p>1. O Tetraphármakon epicurista é:</p>
+                        <label class="quiz-option"><input type="radio" name="q1" value="a"> a) Um quádruplo remédio para a alma</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="b"> b) Um tratado político</label>
+                        <label class="quiz-option"><input type="radio" name="q1" value="c"> c) Um manual de guerra</label>
+                    </div>
+                    <div class="quiz-question" data-correct="b">
+                        <p>2. Para Hobbes, o estado de natureza é:</p>
+                        <label class="quiz-option"><input type="radio" name="q2" value="a"> a) Um estado de paz e harmonia</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="b"> b) Guerra de todos contra todos</label>
+                        <label class="quiz-option"><input type="radio" name="q2" value="c"> c) Um paraíso terrestre</label>
+                    </div>
+                    <div class="quiz-question" data-correct="c">
+                        <p>3. Para Rousseau, o homem nasce:</p>
+                        <label class="quiz-option"><input type="radio" name="q3" value="a"> a) Mau</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="b"> b) Neutro</label>
+                        <label class="quiz-option"><input type="radio" name="q3" value="c"> c) Bom</label>
+                    </div>
+                    <button class="btn-quiz" onclick="verificarQuiz(3)">✅ Verificar respostas</button>
+                    <div id="quiz3Feedback" class="quiz-feedback" style="display:none;"></div>
                 </div>
             </div>
 
             <div class="module-navigation">
                 <button class="nav-module-btn" onclick="irParaModulo(2)">← Módulo Anterior</button>
-                <a href="/simulador/" class="nav-module-btn">🎮 Ir para o Simulador →</a>
+                <a href="/simulador/" class="nav-module-btn">🎮 Ir para o Simulador Final →</a>
             </div>
         </div>
 
-        <!-- Botões de ação únicos no final da página -->
+        <!-- Botões de ação -->
         <div class="action-buttons">
             <a href="/index/" class="action-btn">🏠 Voltar ao Dashboard</a>
-            <a href="/simulador/" class="action-btn">🎮 Ir para o Simulador</a>
+            <a href="/simulador/" class="action-btn">🎮 Ir para o Simulador Final</a>
         </div>
     </main>
 
@@ -639,7 +982,7 @@
             window.location.href = '/login/';
         }
 
-        // Trocar entre módulos
+        // Controle de abas
         function irParaModulo(moduleNum) {
             const tabs = document.querySelectorAll('.tab-btn');
             const modules = document.querySelectorAll('.module-content');
@@ -649,8 +992,6 @@
             
             tabs[moduleNum - 1].classList.add('active');
             document.getElementById(`module${moduleNum}`).classList.add('active');
-            
-            // Scroll suave para o topo do conteúdo
             document.querySelector('.module-tabs').scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
 
@@ -680,16 +1021,121 @@
             }
         }
 
+        // Verificar quiz
+        function verificarQuiz(moduleNum) {
+            const quizDiv = document.getElementById(`quiz${moduleNum}`);
+            const questions = quizDiv.querySelectorAll('.quiz-question');
+            let acertos = 0;
+            
+            questions.forEach((q, idx) => {
+                const selected = q.querySelector(`input[type="radio"]:checked`);
+                const correctValue = q.dataset.correct;
+                
+                const options = q.querySelectorAll('.quiz-option');
+                options.forEach(opt => {
+                    opt.classList.remove('correct', 'incorrect');
+                });
+                
+                if (selected) {
+                    if (selected.value === correctValue) {
+                        acertos++;
+                        selected.closest('.quiz-option').classList.add('correct');
+                    } else {
+                        selected.closest('.quiz-option').classList.add('incorrect');
+                        const correctOption = q.querySelector(`input[value="${correctValue}"]`);
+                        if (correctOption) {
+                            correctOption.closest('.quiz-option').classList.add('correct');
+                        }
+                    }
+                } else {
+                    const correctOption = q.querySelector(`input[value="${correctValue}"]`);
+                    if (correctOption) {
+                        correctOption.closest('.quiz-option').classList.add('correct');
+                    }
+                }
+            });
+            
+            const feedback = document.getElementById(`quiz${moduleNum}Feedback`);
+            feedback.style.display = 'block';
+            if (acertos === questions.length) {
+                feedback.innerHTML = '🎉 Parabéns! Você acertou todas as questões!';
+                feedback.className = 'quiz-feedback correct';
+                
+                // Salvar progresso do quiz
+                let quizzes = JSON.parse(localStorage.getItem('quizzes_completos') || '[]');
+                if (!quizzes.includes(moduleNum)) {
+                    quizzes.push(moduleNum);
+                    localStorage.setItem('quizzes_completos', JSON.stringify(quizzes));
+                }
+            } else {
+                feedback.innerHTML = `📚 Você acertou ${acertos} de ${questions.length} questões. Revise o conteúdo e tente novamente!`;
+                feedback.className = 'quiz-feedback incorrect';
+            }
+            atualizarProgresso();
+        }
+
+        // Mini-simulador
+        function responderMiniSimulador(element, tipo) {
+            const opcoes = document.querySelectorAll('.mini-opcao');
+            opcoes.forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            
+            const feedbackDiv = document.getElementById('miniFeedback');
+            feedbackDiv.style.display = 'block';
+            
+            if (tipo === 'justoMeio') {
+                feedbackDiv.innerHTML = '✅ Correto! O equilíbrio entre a atenção à família e o uso do celular é o Justo Meio. Você demonstrou phronesis!';
+                feedbackDiv.style.background = 'rgba(46, 204, 113, 0.1)';
+                feedbackDiv.style.color = '#2ecc71';
+                feedbackDiv.style.border = '1px solid #2ecc71';
+                
+                let miniSimulador = JSON.parse(localStorage.getItem('mini_simulador') || '[]');
+                if (!miniSimulador.includes('modulo2')) {
+                    miniSimulador.push('modulo2');
+                    localStorage.setItem('mini_simulador', JSON.stringify(miniSimulador));
+                }
+            } else if (tipo === 'falta') {
+                feedbackDiv.innerHTML = '❌ Isolamento não é o ideal. Lembre-se: a sociabilidade é parte da natureza humana. O Justo Meio seria um equilíbrio.';
+                feedbackDiv.style.background = 'rgba(231, 76, 60, 0.1)';
+                feedbackDiv.style.color = '#e74c3c';
+                feedbackDiv.style.border = '1px solid #e74c3c';
+            } else {
+                feedbackDiv.innerHTML = '⚠️ Excesso de conectividade pode afastar você do momento presente. O Justo Meio seria um equilíbrio entre atenção à família e ao celular.';
+                feedbackDiv.style.background = 'rgba(243, 156, 18, 0.1)';
+                feedbackDiv.style.color = '#f39c12';
+                feedbackDiv.style.border = '1px solid #f39c12';
+            }
+            atualizarProgresso();
+        }
+
         // Atualizar barra de progresso
         function atualizarProgresso() {
-            let assistidos = JSON.parse(localStorage.getItem('videos_assistidos') || '[]');
-            const percentual = Math.round((assistidos.length / 3) * 100);
+            let videosAssistidos = JSON.parse(localStorage.getItem('videos_assistidos') || '[]');
+            let quizzesCompletos = JSON.parse(localStorage.getItem('quizzes_completos') || '[]');
+            let miniSimulador = JSON.parse(localStorage.getItem('mini_simulador') || '[]');
+            
+            let totalVideos = 3;
+            let totalQuizzes = 3;
+            let totalMini = 1;
+            
+            let progresso = 0;
+            let totalItens = totalVideos + totalQuizzes + totalMini;
+            
+            progresso += videosAssistidos.length;
+            progresso += quizzesCompletos.length;
+            progresso += miniSimulador.length;
+            
+            let percentual = Math.min(100, Math.round((progresso / totalItens) * 100));
             
             document.getElementById('progressPercent').innerHTML = `${percentual}%`;
             document.getElementById('progressFill').style.width = `${percentual}%`;
-            
+        }
+
+        // Carregar estados salvos
+        function carregarEstados() {
+            let videosAssistidos = JSON.parse(localStorage.getItem('videos_assistidos') || '[]');
             for (let i = 1; i <= 3; i++) {
-                if (assistidos.includes(`video${i}`)) {
+                if (videosAssistidos.includes(`video${i}`)) {
                     const badge = document.getElementById(`mod${i}Badge`);
                     if (badge) {
                         badge.innerHTML = '✅ Assistido';
@@ -697,9 +1143,38 @@
                     }
                 }
             }
+            
+            let quizzesCompletos = JSON.parse(localStorage.getItem('quizzes_completos') || '[]');
+            for (let i = 1; i <= 3; i++) {
+                if (quizzesCompletos.includes(i)) {
+                    const feedback = document.getElementById(`quiz${i}Feedback`);
+                    if (feedback && feedback.style.display !== 'block') {
+                        feedback.style.display = 'block';
+                        feedback.innerHTML = '✅ Quiz concluído!';
+                        feedback.className = 'quiz-feedback correct';
+                    }
+                }
+            }
+            
+            let miniSimulador = JSON.parse(localStorage.getItem('mini_simulador') || '[]');
+            if (miniSimulador.includes('modulo2')) {
+                const feedbackDiv = document.getElementById('miniFeedback');
+                if (feedbackDiv) {
+                    feedbackDiv.style.display = 'block';
+                    feedbackDiv.innerHTML = '✅ Mini-simulador concluído! Você acertou o Justo Meio.';
+                    feedbackDiv.style.background = 'rgba(46, 204, 113, 0.1)';
+                    feedbackDiv.style.color = '#2ecc71';
+                    feedbackDiv.style.border = '1px solid #2ecc71';
+                    
+                    const opcaoCorreta = document.querySelector('.mini-opcao[onclick*="justoMeio"]');
+                    if (opcaoCorreta) opcaoCorreta.classList.add('selected');
+                }
+            }
+            
+            atualizarProgresso();
         }
 
-        atualizarProgresso();
+        carregarEstados();
     </script>
 </body>
 </html>
