@@ -351,7 +351,7 @@
             border-bottom: none;
         }
 
-        /* Navegação entre módulos - NOVIDADE */
+        /* Navegação entre módulos */
         .module-navigation {
             display: flex;
             justify-content: space-between;
@@ -380,20 +380,17 @@
             transform: scale(1.02);
         }
 
-        .nav-module-btn.disabled {
-            opacity: 0.4;
-            cursor: not-allowed;
-            pointer-events: none;
-        }
-
-        .nav-buttons {
+        /* Botões de ação no final da página */
+        .action-buttons {
             display: flex;
             justify-content: space-between;
             margin-top: 40px;
             gap: 16px;
+            padding-top: 20px;
+            border-top: 1px solid var(--border);
         }
 
-        .nav-btn {
+        .action-btn {
             background: var(--gold-dark);
             color: var(--bg-dark);
             padding: 12px 28px;
@@ -402,9 +399,10 @@
             font-weight: 600;
             transition: 0.2s;
             text-align: center;
+            flex: 1;
         }
 
-        .nav-btn:hover {
+        .action-btn:hover {
             background: var(--gold);
             transform: scale(1.02);
         }
@@ -432,7 +430,7 @@
             .module-navigation {
                 flex-direction: column;
             }
-            .nav-buttons {
+            .action-buttons {
                 flex-direction: column;
             }
             .module-tabs {
@@ -521,7 +519,6 @@
                 <p>Discípulo de Sócrates, Platão desenvolveu uma filosofia que integra ética, política e metafísica.</p>
             </div>
 
-            <!-- Navegação dentro do módulo 1 -->
             <div class="module-navigation">
                 <span></span>
                 <button class="nav-module-btn" onclick="irParaModulo(2)">📖 Próximo Módulo →</button>
@@ -567,14 +564,13 @@
                 <table class="virtue-table">
                     <thead><tr><th>Falta</th><th>Justo Meio</th><th>Excesso</th></tr></thead>
                     <tbody>
-                        <tr><td>Covardia</td><td>Coragem</td><td>Temeridade</td></tr>
-                        <tr><td>Insensibilidade</td><td>Temperança</td><td>Libertinagem</td></tr>
-                        <tr><td>Isolamento digital</td><td>Uso equilibrado</td><td>Hiperconectividade</td></tr>
+                        <tr><td style="color:#f28b82">Covardia</td><td style="color:var(--gold)">Coragem</td><td style="color:#fbbc04">Temeridade</td></tr>
+                        <tr><td style="color:#f28b82">Insensibilidade</td><td style="color:var(--gold)">Temperança</td><td style="color:#fbbc04">Libertinagem</td></tr>
+                        <tr><td style="color:#f28b82">Isolamento digital</td><td style="color:var(--gold)">Uso equilibrado</td><td style="color:#fbbc04">Hiperconectividade</td></tr>
                     </tbody>
                 </table>
             </div>
 
-            <!-- Navegação dentro do módulo 2 -->
             <div class="module-navigation">
                 <button class="nav-module-btn" onclick="irParaModulo(1)">← Módulo Anterior</button>
                 <button class="nav-module-btn" onclick="irParaModulo(3)">🍃 Próximo Módulo →</button>
@@ -617,16 +613,16 @@
                 </div>
             </div>
 
-            <!-- Navegação dentro do módulo 3 -->
             <div class="module-navigation">
                 <button class="nav-module-btn" onclick="irParaModulo(2)">← Módulo Anterior</button>
                 <a href="/simulador/" class="nav-module-btn">🎮 Ir para o Simulador →</a>
             </div>
         </div>
 
-        <div class="nav-buttons">
-            <a href="/index/" class="nav-btn">🏠 Voltar ao Dashboard</a>
-            <a href="/simulador/" class="nav-btn">🎮 Ir para o Simulador →</a>
+        <!-- Botões de ação únicos no final da página -->
+        <div class="action-buttons">
+            <a href="/index/" class="action-btn">🏠 Voltar ao Dashboard</a>
+            <a href="/simulador/" class="action-btn">🎮 Ir para o Simulador</a>
         </div>
     </main>
 
